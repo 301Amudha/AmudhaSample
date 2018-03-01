@@ -1,7 +1,21 @@
 import React from "react";
 import Header from "./Header";
+import store from "./store";
+import {fetchLoginUser} from "./Loginuser";
+
 export default class Login extends React.Component
 {
+	validateLogin(){
+			console.log("inside")
+			
+			
+			store.dispatch(fetchLoginUser());
+			console.log(store)
+			console.log(store.getState().loginReducer)
+			
+			
+		}
+		
 	render(){
 		const maindivCss = {marginTop:"15%",
 							marginLeft:"33%"
@@ -24,7 +38,7 @@ export default class Login extends React.Component
 				</div>
 				</div>
 				<div className="col-sm-12" style={{marginLeft:"10%"}}>
-				<button type="button" className="btn btn-primary">Login</button>
+				<button type="button" className="btn btn-primary" onClick={this.validateLogin.bind(this)}>Login</button>
 				</div>
 				
 		</div>
